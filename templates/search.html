@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block title %} Search Results {% endblock title %} {% block content %} 
+{% extends 'base.html' %} 
+{% block title %} Search Results {% endblock title %} 
+{% block content %} 
 
 <div class="text-white border-0 col-md-8 mx-auto mt-5">
   <!-- NOTIFY USER IF THEY HAVE ALREADY ADDED THIS CURRENCY IN THEIR WALLET. ANY NEW ADDITIONS WILL BE INCREMENTED, NOT OVERWRITTEN. -->
@@ -25,8 +27,11 @@
           <form action="{% url 'add_to_portfolio' %}" method="post" class="d-inline-block"> 
             {% csrf_token %} 
             <input type="hidden" name="id" value="{{ coin_id }}">
-           <!-- <label class="mr-2 font-weight-bold text-uppercase">Units Owned</label> -->
-            <input type="number" name="quantity" min="1000" max="3000" value="1" class="form-control d-inline-block w-auto mr-2 mb-2"><br>
+            <select name="quantity" class="form-control d-inline-block w-auto mr-2 mb-2">
+              <option value="1000">1000</option>
+              <option value="2000">2000</option>
+              <option value="3000">3000</option>
+            </select>
             <button type="submit" class="btn btn-primary text-uppercase">Add to Portfolio</button>
           </form>
       </div>        
@@ -35,4 +40,6 @@
     
   </div> 
 </div>   
-{% endblock content %} {% block scripts %}  {% endblock scripts %}
+{% endblock content %} 
+{% block scripts %}  
+{% endblock scripts %}
